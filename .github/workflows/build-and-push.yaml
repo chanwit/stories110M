@@ -32,4 +32,16 @@ jobs:
           --timeout 120m0s \
           --path="./" \
           --source="$(git config --get remote.origin.url)" \
-          --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)"
+          --revision="$(git branch --show-current)@sha1:$(git rev-parse HEAD)" \
+          -a 'ai.contrib.fluxcd.io/original-model-repo=https://huggingface.co/karpathy/tinyllamas' \
+          -a 'ai.contrib.fluxcd.io/model-repo=chanwit/stories110M' \
+          -a 'ai.contrib.fluxcd.io/model-file=ggml-model-Q5_K.gguf' \
+          -a 'ai.contrib.fluxcd.io/model-license=mit' \
+          -a 'ai.contrib.fluxcd.io/model-version=v1.0.0' \
+          -a 'ai.contrib.fluxcd.io/format=GGUFv2' \
+          -a 'ai.contrib.fluxcd.io/family=llama' \
+          -a 'ai.contrib.fluxcd.io/context-size=1024' \
+          -a 'ai.contrib.fluxcd.io/quantization=Q5_K_M' \
+          -a 'ai.contrib.fluxcd.io/size-on-disk=98Mi' \
+          -a 'ai.contrib.fluxcd.io/memory-required=500Mi' \
+          -a 'ai.contrib.fluxcd.io/prompt-template={prompt}'
